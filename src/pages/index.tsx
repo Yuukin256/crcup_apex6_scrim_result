@@ -9,18 +9,21 @@ const MainPage: React.FC = () => (
   <Layout>
     <Seo title="Home" />
     <p>
-      2021年7月23日に行われる 第6回 Crazy Raccoon Cup Apex Legends
-      の事前練習カスタム (スクリム)
+      2021年7月23日に行われる 第6回 Crazy Raccoon Cup Apex Legends の事前練習カスタム (スクリム)
       の試合結果一覧です。正確性を保つ努力はしておりますが、集計に誤りがある可能性があります。
     </p>
-    <p
+    <ul
       style={{
         fontSize: '0.8em',
+        listStyle: 'none'
       }}
     >
-      ※「CRキル数」はCR選手 (Ras, Selly, Zeder, Mondo, Cpt)
-      に確定キルを入れた数です。確定キル1つにつきキルポイントとは別に2ポイント加算されます。
-    </p>
+      <li>※ 1試合目から4試合目までは World&apos;s Edge、5試合目から7試合目までは Olympus で行われます。</li>
+      <li>
+        ※ 「CRキル数」はCR選手 (Ras, Selly, Zeder, Mondo, Cpt)
+        に確定キルを入れた数です。確定キル1つにつきキルポイントとは別に2ポイント加算されます。
+      </li>
+    </ul>
     {data.reverse().map((day) => {
       return (
         <>

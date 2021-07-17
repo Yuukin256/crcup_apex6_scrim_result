@@ -33,6 +33,19 @@ const borderRight: React.CSSProperties = {
   borderRight: '1px solid rgba(224, 224, 224, 1)',
 };
 
+const placementColor = (placement: number | '-'): React.CSSProperties => {
+  switch (placement) {
+    case 1:
+      return { backgroundColor: '#DBB400' };
+    case 2:
+      return { backgroundColor: '#B2BABA' };
+    case 3:
+      return { backgroundColor: '#AE6938' };
+    default:
+      return {};
+  }
+};
+
 const HeadRow1: React.VFC = () => (
   <TableRow>
     <TableCell colSpan={3} style={borderRight}></TableCell>
@@ -250,7 +263,7 @@ const ResultTable: React.VFC<Props> = (props) => {
             })
             .map((teamResult, i) => (
               <TableRow hover key={i}>
-                <TableCell>{i + 1}</TableCell>
+                <TableCell align='right'>{i + 1}</TableCell>
                 <TableCell>{teamResult.name}</TableCell>
                 <TableCell style={borderRight}>
                   <b>{teamResult.totalPoints}</b>
@@ -258,12 +271,16 @@ const ResultTable: React.VFC<Props> = (props) => {
                 {teamResult.results.flatMap((match) => {
                   const pp = calculatePlacementPoint(match.placement);
                   return [
-                    <TableCell key="placement" title={`${pp}ポイント`}>
+                    <TableCell key="placement" title={`${pp}ポイント`} align="right" style={placementColor(match.placement)}>
                       {match.placement}
                     </TableCell>,
-                    <TableCell key="kills">{match.kills}</TableCell>,
-                    <TableCell key="cr">{match.crKills}</TableCell>,
-                    <TableCell style={match.match !== 7 ? borderRight : {}} key="points">
+                    <TableCell key="kills" align="right">
+                      {match.kills}
+                    </TableCell>,
+                    <TableCell key="cr" align="right">
+                      {match.crKills}
+                    </TableCell>,
+                    <TableCell align="right" style={match.match !== 7 ? borderRight : {}} key="points">
                       {match.points}
                     </TableCell>,
                   ];
