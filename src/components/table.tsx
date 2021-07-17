@@ -202,7 +202,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 19,
-      name: 'NIRUチーム',
+      name: 'サラ金カワカミくんi7',
       rank: 0,
       totalPoints: 0,
       results: [],
