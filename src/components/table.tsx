@@ -1,10 +1,4 @@
-import {
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-} from '@material-ui/core';
+import { TableContainer, Table, TableHead, TableBody, TableRow } from '@material-ui/core';
 import React from 'react';
 import TableCell from './improvedTableCell';
 import { calculatePlacementPoint } from '../utils/calculator';
@@ -34,6 +28,45 @@ interface TeamResult {
   totalPoints: number;
   results: Result[];
 }
+
+const borderRight: React.CSSProperties = {
+  borderRight: '1px solid rgba(224, 224, 224, 1)',
+};
+
+const HeadRow1: React.VFC = () => (
+  <TableRow>
+    <TableCell colSpan={3} style={borderRight}></TableCell>
+    {Array(7)
+      .fill(null)
+      .map((_, i) => (
+        <TableCell colSpan={4} align="center" style={i !== 6 ? borderRight : {}} key={i}>
+          {i + 1}試合目
+        </TableCell>
+      ))}
+  </TableRow>
+);
+
+const HeadRow2: React.VFC = () => (
+  <TableRow>
+    <TableCell align="center">総合順位</TableCell>
+    <TableCell width={200} align="center">
+      チーム
+    </TableCell>
+    <TableCell style={borderRight}>合計ポイント</TableCell>
+    {Array(7)
+      .fill(null)
+      .flatMap((_, i) => [
+        <TableCell key={i + 'a'}>順位</TableCell>,
+        <TableCell key={i + 'b'}>キル数</TableCell>,
+        <TableCell key={i + 'c'} title={'CR選手の確定キル数'}>
+          CRキル数
+        </TableCell>,
+        <TableCell style={i !== 6 ? borderRight : {}} key={i + 'd'}>
+          ポイント
+        </TableCell>,
+      ])}
+  </TableRow>
+);
 
 interface Props {
   result: InputResult[];
@@ -202,118 +235,40 @@ const ResultTable: React.VFC<Props> = (props) => {
 
   return (
     <TableContainer>
-      <Table stickyHeader={true} size="small">
-        <TableHead>
-          <TableRow>
-            <TableCell colSpan={3}></TableCell>
-            <TableCell colSpan={4} align="center">
-              1試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              2試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              3試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              4試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              5試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              6試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              7試合目
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell align="center">総合順位</TableCell>
-            <TableCell width={200} align="center">
-              チーム
-            </TableCell>
-            <TableCell>合計ポイント</TableCell>
-            {Array(7)
-              .fill(null)
-              .flatMap((_, i) => [
-                <TableCell key={i + 'a'}>順位</TableCell>,
-                <TableCell key={i + 'b'}>キル数</TableCell>,
-                <TableCell key={i + 'c'} title={'CR選手の確定キル数'}>
-                  CRキル数
-                </TableCell>,
-                <TableCell key={i + 'd'}>ポイント</TableCell>,
-              ])}
-          </TableRow>
+      <Table size="small">
+        <TableHead style={{ borderTop: '1px solid rgba(224, 224, 224, 1)', backgroundColor: '#fafafa' }}>
+          <HeadRow1></HeadRow1>
+          <HeadRow2></HeadRow2>
         </TableHead>
         <TableBody>
           {results
             .sort((a, b) => b.totalPoints - a.totalPoints)
             .map((teamResult, i) => (
-              <TableRow key={i}>
+              <TableRow hover key={i}>
                 <TableCell>{i + 1}</TableCell>
                 <TableCell>{teamResult.name}</TableCell>
-                <TableCell>
+                <TableCell style={borderRight}>
                   <b>{teamResult.totalPoints}</b>
                 </TableCell>
-                {teamResult.results.flatMap((match) => [
-                  <TableCell
-                    key="placement"
-                    title={`${calculatePlacementPoint(
-                      match.placement
-                    )}ポイント`}
-                  >
-                    {match.placement}
-                  </TableCell>,
-                  <TableCell key="kills">{match.kills}</TableCell>,
-                  <TableCell key="cr">{match.crKills}</TableCell>,
-                  <TableCell key="points">{match.points}</TableCell>,
-                ])}
+                {teamResult.results.flatMap((match) => {
+                  const pp = calculatePlacementPoint(match.placement);
+                  return [
+                    <TableCell key="placement" title={`${pp}ポイント`}>
+                      {match.placement}
+                    </TableCell>,
+                    <TableCell key="kills">{match.kills}</TableCell>,
+                    <TableCell key="cr">{match.crKills}</TableCell>,
+                    <TableCell style={match.match !== 7 ? borderRight : {}} key="points">
+                      {match.points}
+                    </TableCell>,
+                  ];
+                })}
               </TableRow>
             ))}
         </TableBody>
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">総合順位</TableCell>
-            <TableCell width={200} align="center">
-              チーム
-            </TableCell>
-            <TableCell>合計ポイント</TableCell>
-            {Array(7)
-              .fill(null)
-              .flatMap((_, i) => [
-                <TableCell key={i + 'a'}>順位</TableCell>,
-                <TableCell key={i + 'b'}>キル数</TableCell>,
-                <TableCell key={i + 'c'} title={'CR選手の確定キル数'}>
-                  CRキル数
-                </TableCell>,
-                <TableCell key={i + 'd'}>ポイント</TableCell>,
-              ])}
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={3}></TableCell>
-            <TableCell colSpan={4} align="center">
-              1試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              2試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              3試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              4試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              5試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              6試合目
-            </TableCell>
-            <TableCell colSpan={4} align="center">
-              7試合目
-            </TableCell>
-          </TableRow>
+        <TableHead style={{ borderTop: '1px solid rgba(224, 224, 224, 1)', backgroundColor: '#fafafa' }}>
+          <HeadRow2></HeadRow2>
+          <HeadRow1></HeadRow1>
         </TableHead>
       </Table>
     </TableContainer>
