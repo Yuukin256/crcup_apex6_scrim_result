@@ -182,7 +182,6 @@ const ResultTable: React.VFC<Props> = (props) => {
       results: [],
     },
   ];
-  console.log(props.result);
 
   props.result.forEach((match) => {
     match.teams.forEach((team) => {
