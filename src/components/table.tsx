@@ -110,14 +110,14 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 4,
-      name: 'Mondoチーム',
+      name: 'もちもまんたマリア号',
       rank: 0,
       totalPoints: 0,
       results: [],
     },
     {
       number: 5,
-      name: 'まさのりチーム',
+      name: 'Cute Cheat Neet',
       rank: 0,
       totalPoints: 0,
       results: [],
@@ -180,7 +180,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 14,
-      name: 'だるまチーム',
+      name: '宮崎卍リベンジャーズ',
       rank: 0,
       totalPoints: 0,
       results: [],
@@ -194,7 +194,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 16,
-      name: 'Wokkaチーム',
+      name: '全員ジブ卒',
       rank: 0,
       totalPoints: 0,
       results: [],
@@ -208,7 +208,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 18,
-      name: 'カワセチーム',
+      name: '夢女子卍會',
       rank: 0,
       totalPoints: 0,
       results: [],
