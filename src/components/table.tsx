@@ -272,6 +272,49 @@ const ResultTable: React.VFC<Props> = (props) => {
               </TableRow>
             ))}
         </TableBody>
+        <TableHead>
+          <TableRow>
+            <TableCell align="center">総合順位</TableCell>
+            <TableCell width={200} align="center">
+              チーム
+            </TableCell>
+            <TableCell>合計ポイント</TableCell>
+            {Array(7)
+              .fill(null)
+              .flatMap((_, i) => [
+                <TableCell key={i + 'a'}>順位</TableCell>,
+                <TableCell key={i + 'b'}>キル数</TableCell>,
+                <TableCell key={i + 'c'} title={'CR選手の確定キル数'}>
+                  CRキル数
+                </TableCell>,
+                <TableCell key={i + 'd'}>ポイント</TableCell>,
+              ])}
+          </TableRow>
+          <TableRow>
+            <TableCell colSpan={3}></TableCell>
+            <TableCell colSpan={4} align="center">
+              1試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              2試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              3試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              4試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              5試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              6試合目
+            </TableCell>
+            <TableCell colSpan={4} align="center">
+              7試合目
+            </TableCell>
+          </TableRow>
+        </TableHead>
       </Table>
     </TableContainer>
   );
