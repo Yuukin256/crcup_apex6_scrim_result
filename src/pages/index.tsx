@@ -15,7 +15,7 @@ const MainPage: React.FC = () => (
     </p>
     <p
       style={{
-        fontSize: 'small',
+        fontSize: '0.8em',
       }}
     >
       ※「CRキル数」はCR選手 (Ras, Selly, Zeder, Mondo, Cpt)
