@@ -242,7 +242,12 @@ const ResultTable: React.VFC<Props> = (props) => {
         </TableHead>
         <TableBody>
           {results
-            .sort((a, b) => b.totalPoints - a.totalPoints)
+            .sort((a, b) => {
+              if (a.totalPoints !== b.totalPoints) {
+                return b.totalPoints - a.totalPoints;
+              }
+              return Math.max(...b.results.map((v) => v.points)) - Math.max(...a.results.map((v) => v.points));
+            })
             .map((teamResult, i) => (
               <TableRow hover key={i}>
                 <TableCell>{i + 1}</TableCell>
