@@ -1,4 +1,5 @@
 module.exports = {
+  pathPrefix: 'crcup_apex6_scrim_result',
   siteMetadata: {
     title: `第6回CRカップ 練習カスタム試合結果 (非公式)`,
     description: `第6回Crazy Raccoon Cup Apex Legends の事前練習カスタム (スクリム) の試合結果をまとめた非公式サイト`,
