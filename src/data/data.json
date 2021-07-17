@@ -686,13 +686,13 @@
           },
           {
             "number": 10,
-            "placement": 15,
-            "kills": 0,
+            "placement": 5,
+            "kills": 4,
             "crKills": 0
           },
           {
             "number": 11,
-            "placement": 0,
+            "placement": 15,
             "kills": 0,
             "crKills": 0
           },
