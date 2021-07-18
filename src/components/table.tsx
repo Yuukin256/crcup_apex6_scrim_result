@@ -287,7 +287,7 @@ const ResultTable: React.VFC<Props> = (props) => {
       results[team.number - 1].results.push(result);
       results[team.number - 1].totalPlacementPoints += placementPoints;
       results[team.number - 1].totalKillPoints += killPoints;
-      results[team.number - 1].totalKillPoints += placementPoints + killPoints;
+      results[team.number - 1].totalPoints += placementPoints + killPoints;
     });
   });
 
@@ -301,8 +301,8 @@ const ResultTable: React.VFC<Props> = (props) => {
         <TableBody>
           {results
             .sort((a, b) => {
-              if (a.totalPlacementPoints + a.totalKillPoints !== b.totalPlacementPoints + b.totalKillPoints) {
-                return b.totalPlacementPoints + b.totalKillPoints - (a.totalPlacementPoints + a.totalKillPoints);
+              if (a.totalPoints !== b.totalPoints) {
+                return b.totalPoints - a.totalPoints;
               }
               return Math.max(...b.results.map((v) => v.points)) - Math.max(...a.results.map((v) => v.points));
             })
@@ -311,7 +311,7 @@ const ResultTable: React.VFC<Props> = (props) => {
                 <TableCell align="right">{i + 1}</TableCell>
                 <TableCell>{teamResult.name}</TableCell>
                 <TableCell>
-                  <b>{teamResult.totalPlacementPoints + teamResult.totalKillPoints}</b>
+                  <b>{teamResult.totalPoints}</b>
                 </TableCell>
                 <TableCell>{teamResult.totalPlacementPoints}</TableCell>
                 <TableCell style={borderRight}>{teamResult.totalKillPoints}</TableCell>
