@@ -1,15 +1,21 @@
 import { TableCell, Tooltip, TableCellProps } from '@material-ui/core';
 import React from 'react';
 
-const ImprovedTableCell: React.FC<TableCellProps> = ({ title, children, ...props }) => {
+const ImprovedTableCell: React.FC<TableCellProps> = ({ title, children, style, ...props }) => {
   if (title) {
     return (
       <Tooltip title={title}>
-        <TableCell {...props}>{children}</TableCell>
+        <TableCell style={{...style, paddingRight: 12 }} {...props}>
+          {children}
+        </TableCell>
       </Tooltip>
     );
   } else {
-    return <TableCell {...props}>{children}</TableCell>;
+    return (
+      <TableCell style={{...style, paddingRight: 12 }} {...props}>
+        {children}
+      </TableCell>
+    );
   }
 };
 
