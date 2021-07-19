@@ -66,7 +66,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 2,
-      name: 'Rasチーム',
+      name: 'からみ・てんぺすと',
       rank: 0,
       totalPlacementPoints: 0,
       totalKillPoints: 0,
@@ -138,7 +138,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 10,
-      name: 'Cptチーム',
+      name: 'うまいエビの星',
       rank: 0,
       totalPlacementPoints: 0,
       totalKillPoints: 0,
@@ -228,7 +228,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 20,
-      name: 'ボドカチーム',
+      name: 'サーバーオッチ',
       rank: 0,
       totalPlacementPoints: 0,
       totalKillPoints: 0,
