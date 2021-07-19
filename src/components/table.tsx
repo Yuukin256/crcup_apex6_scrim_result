@@ -5,6 +5,7 @@ import { calculatePlacementPoint } from '../utils/calculator';
 
 interface InputResult {
   match: number;
+  map: string;
   teams: {
     number: number;
     placement: number | '-';
@@ -260,13 +261,16 @@ const ResultTable: React.VFC<Props> = (props) => {
     return (
       <TableRow>
         <TableCell colSpan={5} style={borderRight}></TableCell>
-        {Array(matches)
-          .fill(null)
-          .map((_, i) => (
-            <TableCell colSpan={4} align="center" style={i + 1 !== matches ? borderRight : {}} key={i}>
-              {i + 1}試合目
-            </TableCell>
-          ))}
+        {props.result.map((matchResult) => (
+          <TableCell
+            colSpan={4}
+            align="center"
+            style={matchResult.match !== matches ? borderRight : {}}
+            key={matchResult.match}
+          >
+            {matchResult.match}試合目 ({matchResult.map})
+          </TableCell>
+        ))}
       </TableRow>
     );
   };
@@ -312,6 +316,7 @@ const ResultTable: React.VFC<Props> = (props) => {
               if (a.totalPoints !== b.totalPoints) {
                 return b.totalPoints - a.totalPoints;
               }
+              // 同ポイントの場合は最高スコアが高いチームが上位
               return Math.max(...b.results.map((v) => v.points)) - Math.max(...a.results.map((v) => v.points));
             })
             .map((teamResult, i) => (

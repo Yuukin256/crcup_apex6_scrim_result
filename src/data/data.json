@@ -4,6 +4,7 @@
     "matches": [
       {
         "match": 1,
+        "map": "World's Edge",
         "teams": [
           {
             "number": 1,
@@ -129,6 +130,7 @@
       },
       {
         "match": 2,
+        "map": "World's Edge",
         "teams": [
           {
             "number": 1,
@@ -254,6 +256,7 @@
       },
       {
         "match": 3,
+        "map": "World's Edge",
         "teams": [
           {
             "number": 1,
@@ -379,6 +382,7 @@
       },
       {
         "match": 4,
+        "map": "World's Edge",
         "teams": [
           {
             "number": 1,
@@ -504,6 +508,7 @@
       },
       {
         "match": 5,
+        "map": "Olympus",
         "teams": [
           {
             "number": 1,
@@ -629,6 +634,7 @@
       },
       {
         "match": 6,
+        "map": "Olympus",
         "teams": [
           {
             "number": 1,
@@ -754,6 +760,7 @@
       },
       {
         "match": 7,
+        "map": "Olympus",
         "teams": [
           {
             "number": 1,

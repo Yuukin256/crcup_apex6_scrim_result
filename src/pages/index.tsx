@@ -15,10 +15,9 @@ const MainPage: React.FC = () => (
     <ul
       style={{
         fontSize: '0.8em',
-        listStyle: 'none'
+        listStyle: 'none',
       }}
     >
-      <li>※ 1試合目から4試合目までは World&apos;s Edge、5試合目から7試合目までは Olympus で行われます。</li>
       <li>
         ※ 「CRキル数」はCR選手 (Ras, Selly, Zeder, Mondo, Cpt)
         に確定キルを入れた数です。確定キル1つにつきキルポイントとは別に2ポイント加算されます。
