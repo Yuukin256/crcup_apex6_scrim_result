@@ -84,7 +84,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 4,
-      name: 'もちもまんたマリア号',
+      name: 'もちもちまんたマリア号',
       rank: 0,
       totalPlacementPoints: 0,
       totalKillPoints: 0,
