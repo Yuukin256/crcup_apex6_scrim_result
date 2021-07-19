@@ -48,43 +48,6 @@ const placementColor = (placement: number | '-'): React.CSSProperties => {
   }
 };
 
-const HeadRow1: React.VFC = () => (
-  <TableRow>
-    <TableCell colSpan={5} style={borderRight}></TableCell>
-    {Array(7)
-      .fill(null)
-      .map((_, i) => (
-        <TableCell colSpan={4} align="center" style={i !== 6 ? borderRight : {}} key={i}>
-          {i + 1}試合目
-        </TableCell>
-      ))}
-  </TableRow>
-);
-
-const HeadRow2: React.VFC = () => (
-  <TableRow>
-    <TableCell align="center">総合順位</TableCell>
-    <TableCell width={200} align="center">
-      チーム
-    </TableCell>
-    <TableCell>合計ポイント</TableCell>
-    <TableCell>合計順位ポイント</TableCell>
-    <TableCell style={borderRight}>合計キルポイント</TableCell>
-    {Array(7)
-      .fill(null)
-      .flatMap((_, i) => [
-        <TableCell key={i + 'a'}>順位</TableCell>,
-        <TableCell key={i + 'b'}>キル数</TableCell>,
-        <TableCell key={i + 'c'} title={'CR選手の確定キル数'}>
-          CRキル数
-        </TableCell>,
-        <TableCell style={i !== 6 ? borderRight : {}} key={i + 'd'}>
-          ポイント
-        </TableCell>,
-      ])}
-  </TableRow>
-);
-
 interface Props {
   result: InputResult[];
 }
@@ -291,6 +254,51 @@ const ResultTable: React.VFC<Props> = (props) => {
     });
   });
 
+  const matches = props.result.length;
+
+  const HeadRow1: React.VFC = () => {
+    return (
+      <TableRow>
+        <TableCell colSpan={5} style={borderRight}></TableCell>
+        {Array(matches)
+          .fill(null)
+          .map((_, i) => (
+            <TableCell colSpan={4} align="center" style={i + 1 !== matches ? borderRight : {}} key={i}>
+              {i + 1}試合目
+            </TableCell>
+          ))}
+      </TableRow>
+    );
+  };
+
+  const HeadRow2: React.VFC = () => (
+    <TableRow>
+      <TableCell align="center">総合順位</TableCell>
+      <TableCell width={200} align="center">
+        チーム
+      </TableCell>
+      <TableCell>合計ポイント</TableCell>
+      <TableCell>合計順位ポイント</TableCell>
+      <TableCell style={borderRight}>合計キルポイント</TableCell>
+      {Array(matches)
+        .fill(null)
+        .flatMap((_, i) => [
+          <TableCell align="right" key={i + 'a'}>
+            順位
+          </TableCell>,
+          <TableCell align="right" key={i + 'b'}>
+            キル数
+          </TableCell>,
+          <TableCell align="right" key={i + 'c'} title={'CR選手の確定キル数'}>
+            CRキル数
+          </TableCell>,
+          <TableCell align="right" style={i + 1 !== matches ? borderRight : {}} key={i + 'd'}>
+            ポイント
+          </TableCell>,
+        ])}
+    </TableRow>
+  );
+
   return (
     <TableContainer>
       <Table size="small">
@@ -332,7 +340,7 @@ const ResultTable: React.VFC<Props> = (props) => {
                     <TableCell key="cr" align="right">
                       {match.crKills}
                     </TableCell>,
-                    <TableCell align="right" style={match.match !== 7 ? borderRight : {}} key="points">
+                    <TableCell align="right" style={match.match !== matches ? borderRight : {}} key="points">
                       {match.points}
                     </TableCell>,
                   ];
