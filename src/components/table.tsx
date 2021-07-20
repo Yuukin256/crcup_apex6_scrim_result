@@ -192,7 +192,7 @@ const ResultTable: React.VFC<Props> = (props) => {
     },
     {
       number: 16,
-      name: '全員ジブ卒',
+      name: 'チームフラミンゴ',
       rank: 0,
       totalPlacementPoints: 0,
       totalKillPoints: 0,
