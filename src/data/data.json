@@ -3168,5 +3168,136 @@
         ]
       }
     ]
+  },
+  {
+    "day": "5日目 (7月21日)",
+    "matches": [
+      {
+        "match": 1,
+        "map": "World's Edge",
+        "teams": [
+          {
+            "number": 1,
+            "placement": 16,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 2,
+            "placement": 5,
+            "kills": 5,
+            "crKills": 0
+          },
+          {
+            "number": 3,
+            "placement": 13,
+            "kills": 2,
+            "crKills": 0
+          },
+          {
+            "number": 4,
+            "placement": 15,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 5,
+            "placement": 17,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 6,
+            "placement": 6,
+            "kills": 1,
+            "crKills": 0
+          },
+          {
+            "number": 7,
+            "placement": 1,
+            "kills": 19,
+            "crKills": 3
+          },
+          {
+            "number": 8,
+            "placement": 11,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 9,
+            "placement": 4,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 10,
+            "placement": 9,
+            "kills": 6,
+            "crKills": 0
+          },
+          {
+            "number": 11,
+            "placement": 14,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 12,
+            "placement": 8,
+            "kills": 3,
+            "crKills": 0
+          },
+          {
+            "number": 13,
+            "placement": 7,
+            "kills": 2,
+            "crKills": 0
+          },
+          {
+            "number": 14,
+            "placement": 3,
+            "kills": 8,
+            "crKills": 0
+          },
+          {
+            "number": 15,
+            "placement": 19,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 16,
+            "placement": "-",
+            "kills": "-",
+            "crKills": "-"
+          },
+          {
+            "number": 17,
+            "placement": 10,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 18,
+            "placement": 18,
+            "kills": 0,
+            "crKills": 0
+          },
+          {
+            "number": 19,
+            "placement": 2,
+            "kills": 4,
+            "crKills": 0
+          },
+          {
+            "number": 20,
+            "placement": 12,
+            "kills": 0,
+            "crKills": 0
+          }
+        ]
+      }
+    ]
   }
 ]
