@@ -1,0 +1,2 @@
+(self.webpackChunkaccup_apex6_scrim_result=self.webpackChunkaccup_apex6_scrim_result||[]).push([[883],{9616:function(e,t,u){"use strict";u.r(t);var l=u(7294),n=u(2755),c=u(9470);t.default=function(){return l.createElement(n.Z,null,l.createElement(c.Z,{title:"404 Not found"}),l.createElement("h1",null,"404 Not Found"),l.createElement("p",null,"おっと、存在しないページにアクセスしたようです。"))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-c77247e81e90d099d468.js.map
